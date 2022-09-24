@@ -1,0 +1,7 @@
+
+<div *ngFor="let problem of problems">
+    <div class="abcd" style="border: 1mm solid black;margin:3mm">
+        <button (click)="creatorDetails(problem._id)">Creator</button>
+      {{problem.heading}}
+    </div>
+</div>

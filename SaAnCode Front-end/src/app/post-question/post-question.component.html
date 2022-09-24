@@ -1,0 +1,10 @@
+<div>
+    <input type="text" placeholder="Question Title" required [(ngModel)]="title" >
+    <textarea name="question_description" id="" cols="20" rows="2" required [(ngModel)]="description"></textarea>
+    <button (click)="addHintCount()">Add Hint</button>
+    <!-- <div *ngFor="let hc of hintCount"> -->
+        <input type="text" placeholder="Hint" [(ngModel)]="hint">
+        <!-- <button class="btn btn-success" on-click="postHint()">Post</button> -->
+    <!-- </div> -->
+    <button class="btn" (click)="postQuestion()">Publish</button>
+</div>
