@@ -7,11 +7,10 @@ const userSchema = new mongoose.Schema({
         required: true
     },
     age: {
-        type: Number,
-        required:true
+        type: Number
     },
     email:{ // preferred user name to login
-        type:String,
+        type: String,
         unique:true,
         trim:true,
         lowercase:true,

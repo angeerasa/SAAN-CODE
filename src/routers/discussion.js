@@ -7,8 +7,8 @@ const Comment = require('../models/comments')
     FUNCTIONALITIES INCLUDED:
        1 - User need to be authenticated
        2 - Can access all the discussions of a problem
-        - Authenticated user can post discussion
-       4-Comments Routes are also mentioned in this ... 
+       3 - Authenticated user can post discussion
+       4 - Comments Routes are also mentioned in this ... 
     
     MISSING FUNCTIONALITIES:
         - upvoting

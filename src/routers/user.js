@@ -1,6 +1,7 @@
 const express = require('express')
 const User = require('../models/user')
-const auth = require('../middleware/auth')
+const auth = require('../middleware/auth');
+const { FindCursor } = require('mongodb');
 const router = express.Router();
 
 // CREATE USER
@@ -13,6 +14,22 @@ router.post('/user',async (req,res)=>{
     }catch(e){
         res.send(e);
     }    
+})
+//EDIT USER DETAILS
+router.put('/user',auth,async(req,res)=>{
+    const usr = await User.findByIdAndUpdate(req.user._id,req.body);
+    res.send(usr)
+    // const updates = Object.keys(req.body)//JSON.parse(req.body)
+    // updates.forEach((property)=>{
+    //     usr.property = req.body.property
+    // })
+    // try{
+    //     await usr.save();
+    //     res.send('Your Profile Successfully Updated!')
+    // }
+    // catch(e){
+    //     res.status(400).send(e)
+    // }
 })
 
 //LOGIN
