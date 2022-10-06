@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { User } from '../services/interfaces/login.interface';
-
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -9,7 +9,8 @@ import { User } from '../services/interfaces/login.interface';
 })
 export class ProfileComponent implements OnInit {
   profile!: any
-  constructor(private service: DataService) { 
+  edit_profile:boolean = false
+  constructor(public service: DataService) { 
     this.service.getProfile().subscribe(
       (res:User)=>{
         this.profile= res;
@@ -18,7 +19,10 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    
   }
-
+  async updateProfile(){
+    let response = await this.service.updateUserProfile(this.profile);
+    // console.log(response);
+  }
+  
 }

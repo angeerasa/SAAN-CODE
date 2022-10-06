@@ -1,0 +1,29 @@
+<span (click)="Display_Problem_Discussion()">Problem</span>&nbsp;&nbsp;<span (click)="Display_Problem_Discussion()">Discussions</span>
+&nbsp;&nbsp;<span (click)="write_solution=!write_solution">Solution</span>
+<div *ngIf="Problem_Discussion">
+    <h1>{{problem.heading}}</h1>
+    <p>{{problem.description}}</p>
+</div>
+
+<div *ngIf="!Problem_Discussion">
+    <h1>Discussions</h1>
+    <div *ngFor="let discussion of discussions" style="border: 1mm solid grey;">
+        <h3>{{discussion.title}}</h3>
+        <p>{{discussion.discussion}}</p>
+    </div>
+</div>
+
+<div *ngIf="write_solution">
+    <form [formGroup]="submitForm" (ngSubmit)="solutionSubmit()">
+        <h1>Solution</h1>
+        <select formControlName="language">
+            <option value="python3">Python 3</option>
+            <option value="java">Java</option>
+            <option value="cpp">C++</option>
+        </select>
+        <textarea cols="30" rows="10" formControlName="solution_code" onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}">
+        </textarea>
+        <input type="submit" value="Run">
+    </form>
+    {{solution_output}}
+</div>

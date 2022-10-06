@@ -9,9 +9,10 @@ import { SigninComponent } from './signin/signin.component';
 import { ProfileComponent } from './profile/profile.component';
 import {HttpClientModule} from '@angular/common/http';
 import { DataService } from './services/data.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PostQuestionComponent } from './post-question/post-question.component';
 import { ProblemsListComponent } from './problems-list/problems-list.component';
+import { ProblemComponent } from './problem/problem.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +22,15 @@ import { ProblemsListComponent } from './problems-list/problems-list.component';
     SigninComponent,
     ProfileComponent,
     PostQuestionComponent,
-    ProblemsListComponent
+    ProblemsListComponent,
+    ProblemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
