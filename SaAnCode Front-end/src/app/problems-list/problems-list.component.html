@@ -1,0 +1,31 @@
+
+<!-- <div *ngFor="let problem of problems"> -->
+  <table>
+    <tr>
+      <th>
+        <strong>Problem</strong>
+      </th>
+      <th (click)="sortProblems()"><strong>Difficulty</strong></th>
+      <th (click)="sortProblems()" style="cursor:pointer;"> Tags</th>
+    </tr>
+    <tr *ngFor="let problem of problems">
+      <td>
+        <div class="abcd" style="border: 1mm solid black;margin:3mm" >
+          <p (click)="creatorDetails(problem._id)">Creator:</p>
+          <p clickable (click)="displayProblem(problem._id)">{{problem.heading}}</p>
+        </div>
+      </td>
+      <td>{{problem.difficulty}}</td>
+      <td>
+        {{problem.relatedTopics}}
+      </td>
+    </tr>
+  </table>
+    
+    <div *ngIf="currProblem">
+      <h1>{{currProblem.heading}}</h1>
+      <h3>{{currProblem.description}}</h3>
+    </div>
+    
+<!-- </div> -->
+

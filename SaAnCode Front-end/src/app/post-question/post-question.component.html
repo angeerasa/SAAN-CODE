@@ -1,0 +1,19 @@
+<div>
+    <br>
+    
+    <input type="text" placeholder="Question Title" required [(ngModel)]="title" > <br>
+    <textarea name="question_description" id="" cols="35" rows="5" required [(ngModel)]="description" placeholder="Explain your Problem Here ..."></textarea><br>
+        <input type="text" placeholder="Hint" [(ngModel)]="hnt">
+        <p style="color: rgb(28, 77, 239);">Click "Post" to add for Submission</p>
+        <button on-click="addHint()">Post</button> <br>
+        <!-- HINTS WILL BE ADDED FOR PUBLISHION ONLY WHEN "Post" BUTTON IS CLICKED
+        FOR EACH HINT -->
+    <input type="text" placeholder="Topic Tags" [(ngModel)]="relatedTopics"><br><br>
+    Enter Test Cases
+    <textarea  cols="30" rows="10" [(ngModel)]="test_cases"></textarea><br>
+    Enter Your solution:
+    <textarea  cols="50" rows="10" id="myInput" [(ngModel)]="original_solution" onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}"></textarea><br>
+    <input type="text" [(ngModel)]="language_used" placeholder="Language Used">
+    <button (click)="solutionSubmit()">Try Code</button>
+    <button class="btn btn-primary" (click)="postQuestion()">Publish</button>
+</div>

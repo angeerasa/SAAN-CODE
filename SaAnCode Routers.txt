@@ -1,0 +1,71 @@
+USER ROUTERS:
+-------------
+
+Create User -> /user
+Edit User -> /user   ->patch request
+Login		-> /login
+
+User profile -> /login/me
+User Problems-> /user/problems
+
+List all users -> /logins
+
+
+SOLUTIONS:
+---------
+ Write Solution	-> /write/solution/:problem_id
+
+ All subissions
+ of a problem	-> /submissions/:problem_id
+
+
+
+PROBLEMS:
+--------
+ Write Problem	-> /write/problem
+ All probllems	-> /problems
+ UserByProblemId	-> /user/:problem_id
+ 
+ problems by user id -> /:user_id/problems
+
+
+DISCUSSIONS:
+-----------
+
+All discussions of problem	-> /discussions/:problem_id
+Write Discussion			-> /write/discussion/:problem_id
+Write comment			-> /write/comment/:discussion_id
+Read Comments			-> /read/comments/:discussion_id
+
+==============================================================================================================
+
+PROBLEMS SCHEMA:
+-------- ------
+	const Problems = mongoose.model('Problems', {
+	    heading: {
+	        type:String,
+	        required:true
+	    },
+	    description:{
+	        type:String,
+	        required: true
+	    },
+	    creator:{
+	        type: mongoose.Schema.Types.ObjectId,
+	        required:true,
+	        ref: 'User'
+	    },
+	    hints:[{
+	        hint:{
+	            type:String
+	        }
+	    }],
+	    testCases:{
+	        type: String,
+	    },
+	    relatedTopics:[{
+	        topic:{
+            	type:String
+      	  }
+	    }]
+	})
